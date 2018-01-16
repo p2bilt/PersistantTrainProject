@@ -17,11 +17,17 @@
 
         <link href="assets/css/train.css" rel="stylesheet">
 
+<!-- Load the Firebase library before loading the body. -->
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
 
+    <!-- Load the jQuery library, which we'll use to manipulate HTML elements with Javascript. -->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
   </head>
   
   <body>
+       <script src="trainerino.js"></script>
+
     <div class="container">
       <div class="jumbotron">
        <img class="pull-right" src="assets/images/train_sm.png" height="120px" alt="">
@@ -36,8 +42,8 @@
             Current Train Schedule
           </h3>
         </div>
-        <table class="table">
-          <tbody>
+        <table class="table" id="trainTable">
+          <thead>
             <tr>
               <th>
                 Train Name
@@ -55,23 +61,9 @@
                 Minutes Away
               </th>
             </tr>
-            <tr>
-              <td>
-                Cell 1
-              </td>
-              <td>
-                Cell 2
-              </td>
-              <td>
-                Cell 3
-              </td>
-              <td>
-                Cell 4
-              </td>
-              <td>
-                Cell 5
-              </td>
-            </tr>
+</thead>
+            <tbody>
+            
           </tbody>
         </table>
       </div>
@@ -82,44 +74,42 @@
           </h3>
         </div>
         <div class="panel-body">
-          <form>
+
+          <form id="trainScheduleForm">
             <div class="form-group">
-              <label>
+              <label for="train-name">
                 Train Name
               </label>
-              <input type="text" class="form-control">
+              <input type="text" id="train-name" class="form-control" placeholder="Name of the Train">
             </div>
-          </form>
+          
           <div class="form-group">
-            <label>
+            <label for="train-destination">
               Destination
             </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="train-destination" placeholder="Destination of the Train">
           </div>
           <div class="form-group">
-            <label>
+            <label for="train-time">
               First Train Time (HH:mm - military time)
             </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="train-time" placeholder="First Train Time">
           </div>
           <div class="form-group">
-            <label>
+            <label for="train-frequency">
               Frequency (min)
             </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="train-frequency" placeholder="Frequency of the Train in Minutes">
           </div>
           <button type="submit" class="btn btn-primary pull-right" >
              Submit 
           </button>
+          </form>
         </div>
       </div>
     </div>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
-      <script src="assets/javascript/training.js"></script>
+
+   
 
 <!--     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"
     >
