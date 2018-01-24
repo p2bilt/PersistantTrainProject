@@ -15,6 +15,8 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-1L94saFXWAvEw88RkpRz8r28eQMvt7kG9ux3DdCqya/P3CfLNtgqzMnyaUa49Pl2" crossorigin="anonymous">
 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
         <link href="assets/css/train.css" rel="stylesheet">
 
 <!-- Load the Firebase library before loading the body. -->
@@ -39,7 +41,7 @@
       <div class="panel panel-success">
         <div class="panel-heading">
           <h3 class="panel-title">
-            Current Train Schedule
+            Current Train Schedule <span class="pull-right greentext" id="time"></span>
           </h3>
         </div>
         <table class="table" id="trainTable">
@@ -51,14 +53,23 @@
               <th>
                 Destination
               </th>
-              <th>
-                Frequency (min)
+              <th class="text-center">
+                Initial Departure
               </th>
-              <th>
+              <th class="text-center">
+                Frequency (mins)
+              </th>
+              <th class="text-center">
                 Next Arrival
               </th>
-              <th>
-                Minutes Away
+              <th class="text-center">
+                Mins Away
+              </th>
+              <th class="text-center">
+                Del 
+              </th>
+                            <th class="text-center">
+                Edit 
               </th>
             </tr>
 </thead>
@@ -67,15 +78,16 @@
           </tbody>
         </table>
       </div>
-      <div class="panel panel-info">
+      <div id="addPanel" class=" panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">
+          <h3 id="addPanelTitle" class="panel-title">
             Add Train
           </h3>
         </div>
         <div class="panel-body">
 
           <form id="trainScheduleForm">
+            <input type="hidden" id="key"/>
             <div class="form-group">
               <label for="train-name">
                 Train Name
@@ -101,7 +113,7 @@
             </label>
             <input type="text" class="form-control" id="train-frequency" placeholder="Frequency of the Train in Minutes">
           </div>
-          <button type="submit" class="btn btn-primary pull-right" >
+          <button type="submit" id="addButton" class="btn btn-primary pull-right" >
              Submit 
           </button>
           </form>
